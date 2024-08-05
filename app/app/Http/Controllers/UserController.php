@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\User\AuthUserRequest;
 use App\Http\Requests\User\DeleteUserRequest;
 use App\Http\Requests\User\ReadOneUserRequest;
 use App\Http\Requests\User\StoreUserRequest;
@@ -39,5 +40,15 @@ class UserController extends Controller
     public function delete(DeleteUserRequest $request): JsonResponse
     {
         return $this->userService->delete($request->input('uuid'));
+    }
+
+    public function login(AuthUserRequest $request): JsonResponse
+    {
+        return $this->userService->login($request->all());
+    }
+
+    public function logout(): JsonResponse
+    {
+
     }
 }

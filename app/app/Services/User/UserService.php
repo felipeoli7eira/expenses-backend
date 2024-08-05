@@ -78,4 +78,21 @@ class UserService
 
         return ResponseFormatHandler::sendResponse('Usuário não encontrado');
     }
+
+    public function login(array $credentials): JsonResponse
+    {
+        try
+        {
+            //
+        }
+        catch (Throwable $throwable)
+        {
+            //throw $th;
+        }
+    }
+
+    public function logout(): JsonResponse
+    {
+        return response()->json([]);
+    }
 }
