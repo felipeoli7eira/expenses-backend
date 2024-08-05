@@ -21,7 +21,7 @@ abstract class Controller extends BaseController
     *
     * @return \Illuminate\Http\JsonResponse
     */
-    public function sendResponse($message = 'Ok', $response_data = null, array $additional_values = [], $http_code = 200): JsonResponse
+    public function sendResponse(string $message = 'Ok', ?array $response_data = null, array $additional_values = [], $http_code = 200): JsonResponse
     {
         $response = [
             'success'     => true,
@@ -47,12 +47,12 @@ abstract class Controller extends BaseController
     *
     * @return \Illuminate\Http\Response
     */
-    public function sendError($error, array $data = null, int $code = 500): JsonResponse
+    public function sendError(string $error, ?array $data = null, int $code = 500): JsonResponse
     {
         $response = [
-            'success' => false,
+            'success'      => false,
             'status_text'  => 'error',
-            'message' => $error,
+            'message'      => $error,
         ];
 
         if (!is_null($data)) {
